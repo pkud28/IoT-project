@@ -42,6 +42,7 @@ These are RESTAPI servers and each is at different port and all (except sensors 
 
 Some examplary screenshots of how it works:
 
+![Zrzut ekranu 2023-03-29 003747](https://user-images.githubusercontent.com/129230442/228392484-632e5781-99a0-4d9d-b3b2-4002f80c64c1.png)
 
 
 
