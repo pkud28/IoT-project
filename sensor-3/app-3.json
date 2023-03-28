@@ -1,0 +1,17 @@
+{
+  "sensor_id": 3,
+  "sensor_name": "Urzadzenie nr 3",
+  "file": "cenyhazard.csv",
+  "cols": [
+    "data",
+    "Podatek od gier (tys zl)"
+  ],
+  "T": 3,
+  "protocol": "http",
+  "broker_host": "127.0.0.1",
+  "broker_port": 1883,
+  "mqtt_topic": "Podatek",
+  "http_url": "http://127.0.0.1:5000",
+  "pause": 0,
+  "app_url": "http://127.0.0.1:1900"
+}

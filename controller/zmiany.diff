@@ -1,0 +1,50 @@
+diff '--color=auto' -r controller/controller.py controller2/controller.py
+3c3
+< from flask import Flask
+---
+> from flask import Flask, request, render_template, make_response
+38,39c38,39
+<             # Control.html '/sensors'
+<             return lista
+---
+> 
+>             return make_response(render_template("Control.html", content=lista), 200)
+46d45
+<         Sensor(sensor_id)
+55,56c54,55
+<     #SENSORS[1] = Sensor(1, 'euro', 'http://127.0.0.1:2137')
+<     #SENSORS[2] = Sensor(2, 'demo', None)
+---
+>     SENSORS[1] = Sensor(1, 'euro', 'http://127.0.0.1:2137')
+>     SENSORS[2] = Sensor(2, 'demo', None)
+diff '--color=auto' -r controller/templates/Control.html controller2/templates/Control.html
+6,10d5
+<       p {
+< 	background-color: rgb(0, 253, 194);
+<         padding: 1%;
+<         border: 5px solid rgb(60, 12, 172);
+<       }
+16,17c11,12
+< 	background-color: royalblue;
+< 	color: white;
+---
+> 	background-color: rgb(0, 253, 194);
+>         border: 5px solid rgb(60, 12, 172);
+24c19,23
+<       <p>{{element}}</p>
+---
+>       <p>
+> 	<form action="{{ element['uri'] }}">
+> 	  <input type="submit" value="{{ element['sensor_name'] }}"/>
+> 	</form>
+>       </p>
+27,32d25
+<     <h>Change config</h>
+<     {% for element in content %}
+<       <form action="/{{loop.index}}">
+<         <input type="submit" value='{{element}}' />
+<       </form>
+<     {% endfor %}
+34a28
+> 
+Only in controller2/templates: garbage.html

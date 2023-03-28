@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <style>
+           .Config p {
+                padding: 1%;
+	            margin-left: 5%;
+	            margin-right: 5%;
+	            width: 500px;
+	            background-color: rgb(209, 13, 79);
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                color: white;
+            }
+            .Config h2 {
+                padding: 1%;
+	            margin-left: 5%;
+	            margin-right: 5%;
+	            width: 500px;
+	            background-color: rgb(4, 9, 248);
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                color: white;
+            }
+
+
+            .Change p {
+                padding: 1%;
+	            margin-left: 5%;
+	            margin-right: 5%;
+	            width: 500px;
+	            background-color: rgb(32, 126, 233);
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+            }
+            .Change input {
+                background-color: chartreuse;
+
+            }
+            .Change h {
+                padding: 1%;
+	            margin-left: 5%;
+	            margin-right: 5%;
+	            width: 500px;	        
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                color: rgb(212, 5, 253);
+                font-size: 30px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div class = "Config">
+            <h1>Current config</h1>
+            {% for key in conf %}
+                {%if key == 'pause' %}
+                    <p>{{key}} : {{conf[key]}}</p>
+                        {% if conf[key] == 0 %}
+                            <h2>Status: Working</h2>
+                        {% else %}
+                            <h2>Status: Connected</h2>
+                        {% endif %}
+                {% else  %}
+                    <p>{{key}} : {{conf[key]}}</p>
+                {%endif%}
+            {% endfor %} 
+        </div>
+
+        <br><br>
+        <form action = '/sensor/{{s_id}}', method = 'POST'>
+        <div class = "Change">
+            <h>Change config params</h>
+            {% for key in conf %}
+                <p>
+                    {% if key in keys %}
+                        <label for="{{key}}"> {{key}}: </label>
+                        {% if key == 'cols' %}      
+                            <input type="text" id="{{key}}" name="{{key}}" value='{{ conf[key] | tojson() }}'>
+                        {% else %}
+                            <input type="text" id="{{key}}" name="{{key}}" value="{{ conf[key] }}">
+                        {% endif %}
+                    {% else %}
+                        {{key}} : {{conf[key]}}
+                    {% endif %}
+                </p>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </div>
+        
+        </form>
+        <br><br>
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,8 @@
+1. MQTT BROKER
+2. Wizualizajca
+2. FILTER
+3. AGREGAT
+4. SERVER
+5. CONTROLLER
+6. APP - x
+7. (opcjonalnie) subskybent

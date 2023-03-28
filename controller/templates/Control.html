@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <style>
+      .Apps input {
+	      padding: 1%;
+	      margin-left: 10%;
+	      margin-right: 10%;
+	      min-width: 80%;
+	      background-color: rgb(0, 253, 194);
+        border: 5px solid rgb(60, 12, 172);
+      }
+      .Agregator p {
+        padding: 1%;
+        background-color: rgb(117, 117, 221);
+      }
+      .Agregator input {
+        background-color: rgb(221, 13, 93);
+      }
+      .Filtr p {
+        padding: 1%;
+        background-color: rgb(212, 231, 41);
+      }
+      .Filtr input {
+        background-color: rgb(13, 30, 221);
+      }
+      .Redirect input {
+	      padding: 1%;
+	      margin-left: 10%;
+	      margin-right: 10%;
+	      min-width: 80%;
+	      background-color: rgb(0, 253, 194);
+        border: 5px solid rgb(60, 12, 172);
+      }
+      .Visualise input {
+	      padding: 1%;
+	      margin-left: 10%;
+	      margin-right: 10%;
+	      min-width: 80%;
+	      background-color: rgb(0, 253, 194);
+        border: 5px solid rgb(60, 12, 172);
+      }
+      .Vis p {
+        padding: 1%;
+        background-color: rgb(10, 226, 39);
+      }
+      .Vis input {
+        background-color: chocolate;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Registered apps</h1>
+    <div class = "Apps">
+    {% for element in content %}
+      <p>
+	  <form action="{{ element['url'] }}">
+	    <input type="submit" value="{{ element['sensor_name'] }}"/>
+	  </form>
+      </p>
+    {% endfor %}
+    </div>
+    <br><br>
+    <h2>Agregator</h2>
+    <form action='http://127.0.0.1:2222/' method="post">
+    <div class = "Agregator">
+      <h>Change agregator params</h>
+      {% for id in ids %}
+        <p> 
+          <label for="{{id}}"> {{id}}: </label> 
+          <input type="text" id="{{id}}" name="{{id}}" value="0" >
+        </p>
+      {% endfor %}
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+
+    <form action='http://127.0.0.1:2222/'>
+    <div class = "Redirect">
+      <input type="submit" value="Agregator"/>
+    </div>
+    </form>
+
+    <br><br>
+    <h2>Filtr</h2>
+    <form action='http://127.0.0.1:2500/' method="post">
+    <div class = "Filtr">
+      <h>Change filter params</h>
+      {% for id in ids %}
+        <p> 
+          <label for="{{id}}"> {{id}}: </label> 
+          <input type="text" id="{{id}}" name="{{id}}" value="0" >
+        </p>
+      {% endfor %}
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+
+    <form action='http://127.0.0.1:2500/'>
+    <div class = "Redirect">
+      <input type="submit" value="Filtr"/>
+    </div>
+    </form>
+  </form>
+  <br><br>
+  <h3>Wizualizacja</h3>
+  
+  <form action='http://127.0.0.1:2600/' method="post">
+    <div class = "Vis">
+      <h>Change app to visualise</h>
+        <p> 
+          <label for="vis"> APP: </label> 
+          <input type="text" id = "vis" name="vis" value="0" >
+        </p>
+      <input type="submit" value="Submit">
+    </div>
+    </form>
+
+  <form action='http://127.0.0.1:2600/'>
+  <div class = "Visualise">
+    <h4>Wybierz aplikacje</h4>
+    <input type="submit" value="Wizualizacja"/>
+  </div>
+  </form>
+
+  </body>
+</html>
+
