@@ -42,8 +42,12 @@ These are RESTAPI servers and each is at different port and all (except sensors 
 
 Some examplary screenshots of how it works:
 
+# main panel:
 ![Zrzut ekranu 2023-03-29 003747](https://user-images.githubusercontent.com/129230442/228392484-632e5781-99a0-4d9d-b3b2-4002f80c64c1.png)
 
 
+# changing config by entering values in green brackets:
+
+![Zrzut ekranu 2023-03-29 000215](https://user-images.githubusercontent.com/129230442/228392523-8dc048ad-aa2c-4d04-b691-446ae2a2e68a.png)
 
 
