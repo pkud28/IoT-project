@@ -1,6 +1,6 @@
 ## IoT sensorlike system
 
-This is a project from my uni IoT classes. It pretends to be system, in which 5 sensors are sending reports in given periods of time
+This is a project from my uni IoT classes. Its a system, in which 5 sensors are sending reports in given periods of time
 
 Every sensor (sensor-1, sensor-2, sensor-3, sensor-4, sensor-5) has its own modifiable configuration file (f.e. sensor-1.json)
 
@@ -30,13 +30,13 @@ As I use Multiprocessing, i have decided to use Lock() to unable doing anything 
 Every sensor has a common base - class: ConfigFile and ReportSender (activated in def worker)
 
 
-Whole system also consists of:
-- 'subskrybent' which is basically a paho mqtt brocker.
-- 'controller' in which we can change config file of any sensor from one place (web)
-- 'agregator' which receives data from every active sensor and tries to agregate them into 'weird function' just calculate some nonsense
-- 'filer' in which we can decide from which sensor we would like to collect data
-- 'wizualizacja' which collects data and creates charts of each sensor
-- 'server' which is a main server, 
+Whole system consists of:
+- `subskrybent`which is basically a paho mqtt brocker.
+- `controller` in which we can change config file of any sensor from one place (web)
+- `agregator` which receives data from every active sensor and tries to agregate them into 'weird function' just calculate some nonsense
+- `filer` in which we can decide from which sensor we would like to collect data
+- `wizualizacja` which collects data and creates charts of each sensor
+- `server` which is a main server, 
 
 These are RESTAPI servers and each is at different port and all (except sensors - they are optional) have to be run in terminal.
 
